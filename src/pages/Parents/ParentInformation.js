@@ -57,7 +57,7 @@ const ParentInformation = () => {
           marginBottom: 3,
         }}
       >
-        <h2>Parent Information</h2>
+       <h1 className="text-2xl font-bold ">Parent Information</h1>
         <Box sx={{ display: "flex", alignItems: "center", backgroundColor:"white" }}>
           <SearchIcon sx={{ marginRight: 1 ,color:'#002B16' }} />
           <TextField

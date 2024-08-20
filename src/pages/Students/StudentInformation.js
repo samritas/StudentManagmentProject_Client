@@ -118,7 +118,7 @@ const StudentInformation = () => {
         }}
       >
         <div>
-          <h2>Student Information</h2>
+        <h1 className="text-2xl font-bold ">Student Information</h1>
           <Button
             variant="contained"
             onClick={handleOpen}

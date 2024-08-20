@@ -29,8 +29,12 @@
 //   };
 
 //   return (
-//     <div className="w-60 bg-white h-full shadow-md">
-//       <ul className="flex flex-col text-sm p-4">
+//     <div className="w-34 bg-white h-full shadow-md p-6">
+//       <h1 className="text-2xl font-bold ">logo</h1>
+//       <ul
+//         className="flex flex-col text-sm p-4 gap-4 mt-2"
+//         style={{ justifyContent: "space-between" }}
+//       >
 //         {/* Dashboard */}
 //         <li
 //           className="flex items-center p-3 cursor-pointer hover:bg-gray-200"
@@ -54,7 +58,7 @@
 //             className="text-green-800 mr-4"
 //             style={{ fontSize: "20px" }}
 //           />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800" style={{ fontSize: "16px" }}>
 //             Parents
 //           </span>
 //         </li>
@@ -68,7 +72,7 @@
 //             className="text-green-800 mr-4"
 //             style={{ fontSize: "20px" }}
 //           />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800" style={{ fontSize: "16px" }}>
 //             Teachers
 //           </span>
 //         </li>
@@ -82,7 +86,7 @@
 //             className="text-green-800 mr-4"
 //             style={{ fontSize: "20px" }}
 //           />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800" style={{ fontSize: "16px" }}>
 //             Students
 //           </span>
 //         </li>
@@ -93,7 +97,7 @@
 //           onClick={handleClick}
 //         >
 //           <Class className="text-green-800 mr-4" style={{ fontSize: "20px" }} />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800" style={{ fontSize: "16px" }}>
 //             Classroom
 //           </span>
 //           <span className="ml-auto">
@@ -111,35 +115,35 @@
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/class-level-registration")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Class Level Registration
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/evaluation-schedule")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Evaluation Schedule
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/student-list")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Student List
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/payment")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Payment
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/performance")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Performance
 //             </li>
@@ -155,7 +159,7 @@
 //             className="text-green-800 mr-4"
 //             style={{ fontSize: "20px" }}
 //           />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800" style={{ fontSize: "16px" }}>
 //             Administration
 //           </span>
 //           <span className="ml-auto">
@@ -173,21 +177,21 @@
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/deduction")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Deduction
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/update-salary")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Update Salary
 //             </li>
 //             <li
 //               className="cursor-pointer p-2 hover:bg-gray-200 text-gray-700"
 //               onClick={() => handleNavigation("/set-homeroom-teacher")}
-//               style={{ fontSize: "14px" }}
+//               style={{ fontSize: "16px" }}
 //             >
 //               Set Homeroom Teacher
 //             </li>
@@ -199,13 +203,15 @@
 //           className="flex items-center p-3 cursor-pointer hover:bg-gray-200"
 //           onClick={() => handleNavigation("/logout")}
 //         >
+//           <div className="">
 //           <ExitToApp
-//             className="text-green-800 mr-4"
+//             className="text-green-800"
 //             style={{ fontSize: "20px" }}
 //           />
-//           <span className="text-gray-800" style={{ fontSize: "14px" }}>
+//           <span className="text-gray-800 " style={{ fontSize: "16px" }}>
 //             Logout
 //           </span>
+//           </div>
 //         </li>
 //       </ul>
 //     </div>
@@ -259,8 +265,11 @@ const Sidebar = () => {
       }}
     >
       <List>
+      <ListItem button onClick={() => handleNavigation('/dashboard')}>
+          <h1 className="text-2xl font-bold mb-6 items-center ">Logo</h1>
+        </ListItem>
         <ListItem button onClick={() => handleNavigation('/dashboard')}>
-          <ListItemIcon sx={{ color: '#002B16' }}> {/* Icon color */}
+          <ListItemIcon sx={{ color: '#002B16',fontSize:"14px" }}> {/* Icon color */}
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
