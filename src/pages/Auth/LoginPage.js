@@ -58,6 +58,7 @@ const LoginPage = () => {
           SignUp
         </Button>
       </Grid>
+      
       <Grid
         item
         xs={12}
@@ -70,6 +71,7 @@ const LoginPage = () => {
           padding: 4,
         }}
       >
+        <h1 className="text-2xl font-bold mb-6">Login</h1>
         <TextField
           variant="outlined"
           label="Enter your Schoolname"

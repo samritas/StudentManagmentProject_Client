@@ -48,7 +48,7 @@ const ParentInformation = () => {
   ];
 
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{  }}>
       <Box
         sx={{
           display: "flex",
@@ -58,9 +58,10 @@ const ParentInformation = () => {
         }}
       >
        <h1 className="text-2xl font-bold ">Parent Information</h1>
-        <Box sx={{ display: "flex", alignItems: "center", backgroundColor:"white" }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <SearchIcon sx={{ marginRight: 1 ,color:'#002B16' }} />
           <TextField
+          sx={{backgroundColor: "white"}}
             variant="outlined"
             size="small"
             placeholder="Enter parent's name or class ID"
@@ -68,7 +69,15 @@ const ParentInformation = () => {
         </Box>
       </Box>
 
-      <Box sx={{ height: 400, width: '100%', marginBottom: 2 }}>
+      <Box sx={{
+          height: 400,
+          width: "100%",
+          marginBottom: 2,
+          backgroundColor: "white", // White background
+          borderRadius: "8px", // Smooth edges
+          overflow: "hidden", // Hide overflow for smooth corners
+        }}
+        className="shadow-lg">
         <DataGrid
           rows={rows}
           columns={columns}

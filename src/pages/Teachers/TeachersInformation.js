@@ -53,17 +53,17 @@ const TeachersInformation = () => {
   ];
 
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{}}>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 3,
+         
         }}
       >
         <div>
-        <h2>Teacher Information</h2>
+        <h2  className="text-2xl font-bold">Teacher Information</h2>
         <Button
             variant="contained"
             onClick={handleOpen}
@@ -81,9 +81,10 @@ const TeachersInformation = () => {
           </Button>
           <AddTeacher open={open} handleClose={handleClose} />
           </div>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex", alignItems: "center"   }}>
           <SearchIcon sx={{ marginRight: 1 ,color:'#002B16' }} />
           <TextField
+          sx={{backgroundColor: "white"}}
             variant="outlined"
             size="small"
             placeholder="Enter parent's name or class ID"
@@ -91,7 +92,15 @@ const TeachersInformation = () => {
         </Box>
       </Box>
 
-      <Box sx={{ height: 400, width: '100%', marginBottom: 2 }}>
+      <Box sx={{
+          height: 400,
+          width: "100%",
+          marginBottom: 2,
+          backgroundColor: "white", // White background
+          borderRadius: "8px", // Smooth edges
+          overflow: "hidden", // Hide overflow for smooth corners
+        }}
+        className="shadow-lg">
         <DataGrid
           rows={rows}
           columns={columns}

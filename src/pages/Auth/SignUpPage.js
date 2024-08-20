@@ -69,6 +69,7 @@ const SignUpPage = () => {
           padding: 4,
         }}
       >
+        <h1 className="text-2xl font-bold mb-6 ">Sign Up</h1>
         <TextField
           variant="outlined"
           label="Enter your Schoolname"

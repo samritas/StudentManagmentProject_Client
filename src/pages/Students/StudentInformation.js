@@ -42,93 +42,32 @@ const StudentInformation = () => {
       phoneNumber: "0911111111",
       email: "abbb@gmail.com",
     },
-    {
-      id: 2,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 3,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 4,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 5,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 6,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 7,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 8,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 9,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
-    {
-      id: 10,
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "0911111111",
-      email: "abbb@gmail.com",
-    },
+    // ...more rows
   ];
 
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{  }}>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 3,
+          // marginBottom: 3,
         }}
       >
         <div>
-        <h1 className="text-2xl font-bold ">Student Information</h1>
+          <h1 className="text-2xl font-bold">Student Information</h1>
           <Button
             variant="contained"
             onClick={handleOpen}
             sx={{
-              backgroundColor: "#002B16", // Dark green button
+              backgroundColor: "#002B16",
               color: "white",
               marginBottom: 2,
-              transition: "background-color 0.3s ease", // Smooth transition effect
+
+              transition: "background-color 0.3s ease",
               "&:hover": {
-                backgroundColor: "#004d25", // Faded green color on hover
+                backgroundColor: "#004d25",
               },
             }}
           >
@@ -139,6 +78,7 @@ const StudentInformation = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <SearchIcon sx={{ marginRight: 1, color: "#002B16" }} />
           <TextField
+            sx={{ backgroundColor: "white" }}
             variant="outlined"
             size="small"
             placeholder="Enter parent's name or class ID"
@@ -146,7 +86,17 @@ const StudentInformation = () => {
         </Box>
       </Box>
 
-      <Box sx={{ height: 400, width: "100%", marginBottom: 2 }}>
+      <Box
+        sx={{
+          height: 400,
+          width: "100%",
+          marginBottom: 2,
+          backgroundColor: "white", // White background
+          borderRadius: "8px", // Smooth edges
+          overflow: "hidden", // Hide overflow for smooth corners
+        }}
+        className="shadow-lg"
+      >
         <DataGrid
           rows={rows}
           columns={columns}
