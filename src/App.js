@@ -12,7 +12,11 @@ import EvaluationScheduleForm from "./AdminPage/pages/ClassRoom/EvaluationSchedu
 import Deduction from "./AdminPage/pages/Adminstration/Deduction";
 import UpdateSalary from "./AdminPage/pages/Adminstration/UpdateSalary";
 import SetHomeRoomTeacher from "./AdminPage/pages/Adminstration/SetHomeRoomTeacher";
+
+//Students Url
 import NotFound from "./LandingPage/Component/NotFound/NotFound";
+import SignIn from "./LandingPage/Pages/Auth/SignIn";
+import StudentLandingPage from "./LandingPage/Pages/Students/StudentLandingPage";
 
 function App() {
   return (
@@ -44,6 +48,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<SignUpPage />} />
 
+        {/* Landing Page Routes */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/students" element={<StudentLandingPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
