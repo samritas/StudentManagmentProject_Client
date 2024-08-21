@@ -842,3 +842,6 @@ video {
     line-height: 1.25rem;
   }
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
