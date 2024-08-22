@@ -54,7 +54,7 @@ const Header = () => {
       case "/":
         return (
           <img
-            className="xl:w-48 md:w-40 w-28 h-24"
+            className="xl:w-36 md:w-32 w-28 h-20"
             src={navBackground ? logo : logo}
             alt="Logo"
           />
@@ -62,7 +62,7 @@ const Header = () => {
       default:
         return (
           <img
-            className="xl:w-48 md:w-32 w-20"
+            className="xl:w-48 md:w-32 w-20 h-20"
             src={navBackground ? logo : logo}
             alt="Logo"
           />
@@ -93,7 +93,7 @@ const Header = () => {
         >
           <div className="container flex justify-between items-center mx-auto px-3 text-white">
             <div className="flex">
-              <div className="flex bg-white justify-between items-center fixed md:relative left-0 top-0 w-full">
+              <div className=" flex bg-white justify-between items-center fixed md:relative left-0 top-0 w-full">
                 <div
                   onClick={handleNav}
                   className="block md:hidden text-textColor my-2 ml-4"

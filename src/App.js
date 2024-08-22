@@ -14,6 +14,7 @@ import UpdateSalary from "./AdminPage/pages/Adminstration/UpdateSalary";
 import SetHomeRoomTeacher from "./AdminPage/pages/Adminstration/SetHomeRoomTeacher";
 
 //Students Url
+import ProtectedRoutes from "./protectedRoutes/ProtectedRoutes";
 import NotFound from "./LandingPage/Component/NotFound/NotFound";
 import SignIn from "./LandingPage/Pages/Auth/SignIn";
 import StudentLandingPage from "./LandingPage/Pages/Students/StudentLandingPage";
@@ -50,7 +51,9 @@ function App() {
 
         {/* Landing Page Routes */}
         <Route path="/signin" element={<SignIn />} />
+        <Route element={<ProtectedRoutes />}>
         <Route path="/students" element={<StudentLandingPage />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

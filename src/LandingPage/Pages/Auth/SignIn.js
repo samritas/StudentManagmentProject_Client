@@ -1,11 +1,27 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 // return
 const SignIn = (props) => {
+
+  const navigate = useNavigate();
+  // use form
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit=(loginData)=>{
+     localStorage.setItem("userInfo", JSON.stringify("loggedUser"));
+    navigate("/students");
+  }
+
   return (
     <>
-      <section class="w-full relative">
-        <div className="w-screen h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2 ">
+      <section class="w-full bg-gray-500">
+        <div className="h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
           <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-cyan-500 to-blue-500 h-full">
             <div class="px-4 py-6 text-white md:mx-6 md:p-12">
               <div class="md:hidden flex text-center">
@@ -45,7 +61,7 @@ const SignIn = (props) => {
                 </h4>
               </div>
 
-              <form className="space-y-4 md:space-y-6">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
                 <p class="mb-4">Please login to your account</p>
 
                 <div>
