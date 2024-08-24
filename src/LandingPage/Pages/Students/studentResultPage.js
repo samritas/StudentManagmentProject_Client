@@ -1,66 +1,57 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 import Layout from "../../Layouts/layout";
 
-const StudentLandingPage = () => {
+const StudentResultPage = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
+    {
+      loop: true,
+      align: "start",
+      slidesToScroll: 2, // Scroll one card at a time
+    },
     [Autoplay({ stopOnInteraction: false })]
   );
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [slidesInView, setSlidesInView] = useState([]);
+
+  const scrollTo = useCallback(
+    (index) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setSlidesInView(emblaApi.slidesInView());
   }, [emblaApi]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi, onSelect]);
 
   return (
     <Layout>
       <div className="w-full bg-[#F7FAF9]">
         <div className="w-full xl:w-10/12 lg:w-10/12 md:w-11/12 mx-auto py-14 flex flex-col justify-start items-start px-6 pt-24">
-          <h1 className="text-center text-xl mb-2">25 June</h1>
-          <h1 className="text-center font-normal text-2xl font-serif">Today</h1>
-          <div className="flex m-auto w-10/12 py-6">
-            <div className="cursor-pointer w-full flex justify-around ">
-              <div className="text-sm flex flex-col text-center justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">mon</h1>
-                <h1 class="font-serif text-xl font-bold">26</h1>
-              </div>
-              <div className="text-sm flex flex-col justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">tue</h1>
-                <h1 class="font-serif text-xl font-bold">27</h1>
-              </div>
-              <div className="text-sm flex flex-col justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">Wen</h1>
-                <h1 class="font-serif text-xl font-bold">28</h1>
-              </div>
-              <div className="text-sm flex flex-col justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">thur</h1>
-                <h1 class="font-serif text-xl font-bold">29</h1>
-              </div>
-              <div className="text-sm flex flex-col justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">frid</h1>
-                <h1 class="font-serif text-xl font-bold">30</h1>
-              </div>
-              <div className="text-sm flex flex-col justify-center text-black">
-                <h1 class="font-serif text-sm capitalize">sat</h1>
-                <h1 class="font-serif text-xl font-bold">01</h1>
-              </div>
-            </div>
-          </div>
+          <h1 className="text-center font-normal text-2xl font-serif pb-2">
+            Subjects
+          </h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center justify-center flex-wrap gap-4 md:px-0">
             <div
-              className="overflow-hidden relative  md:col-span-3 "
+              className="overflow-hidden relative  md:col-span-4 embla__viewport"
               style={{
                 flex: "0 0 100%",
               }}
               ref={emblaRef}
             >
-              <div className="flex text-white">
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+              <div className="flex text-white embla__container">
+                <div className="embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -90,7 +81,7 @@ const StudentLandingPage = () => {
                   </div>
                 </div>
 
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+                <div className=" embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -107,9 +98,6 @@ const StudentLandingPage = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className="absolute transition-[1s] -translate-x-0 right-2 top-2 text-sm text-white opacity-70 ">
-                            3:50 - 4:45
-                          </div>
                         </div>
                       </div>
                       <img
@@ -120,7 +108,7 @@ const StudentLandingPage = () => {
                   </div>
                 </div>
 
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+                <div className="embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -137,9 +125,6 @@ const StudentLandingPage = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className="absolute transition-[1s] -translate-x-0 right-2 top-2 text-sm text-white opacity-70 ">
-                            4:50 - 6:05
-                          </div>
                         </div>
                       </div>
                       <img
@@ -149,7 +134,7 @@ const StudentLandingPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+                <div className="embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -166,9 +151,6 @@ const StudentLandingPage = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className="absolute transition-[1s] -translate-x-0 right-2 top-2 text-sm text-white opacity-70 ">
-                            7:15 - 8:05
-                          </div>
                         </div>
                       </div>
                       <img
@@ -179,7 +161,7 @@ const StudentLandingPage = () => {
                   </div>
                 </div>
 
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+                <div className="embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -196,9 +178,6 @@ const StudentLandingPage = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className="absolute transition-[1s] -translate-x-0 right-2 top-2 text-sm text-white opacity-70 ">
-                            8:10 - 9:15
-                          </div>
                         </div>
                       </div>
                       <img
@@ -208,7 +187,7 @@ const StudentLandingPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
+                <div className="embla__slide border  min-w-0  flex-2  lg:flex-3 h-full flex items-center justify-center mx-2">
                   <div class="flex md:w-96 w-full shadow-md rounded-lg overflow-hidden">
                     <div class="overflow-hidded relative shadow-lg w-full">
                       <div class="absolute z-10 transition bg-gradient-to-t from-black via-gray-900 to-transparent h-32 bottom-0 left-0 right-0"></div>
@@ -225,9 +204,6 @@ const StudentLandingPage = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className="absolute transition-[1s] -translate-x-0 right-2 top-2 text-sm text-white opacity-70 ">
-                            9:20 - 10:05
-                          </div>
                         </div>
                       </div>
                       <img
@@ -238,28 +214,53 @@ const StudentLandingPage = () => {
                   </div>
                 </div>
               </div>
-              <button
-                className="embla__prev absolute top-[45%] left-0 py-2 md:py-4 rounded-full px-2 md:px-4 hover:opacity-100 transition-all text-black   bg-white border text-center"
-                onClick={scrollPrev}
-              >
-                <RiArrowLeftLine className=" " />
-              </button>
-              <button
-                className="embla__next absolute top-[45%] right-0 py-2 md:py-4 rounded-full px-2 md:px-4 hover:opacity-100 transition-all text-black   bg-white border"
-                onClick={scrollNext}
-              >
-                <RiArrowRightLine className=" " />
-              </button>
+              {/* Navigation Dots */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {slidesInView.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-8 md:w-12 h-2 rounded-full ${
+                      index === selectedIndex ? "bg-blue-500" : "bg-gray-300"
+                    }`}
+                    onClick={() => scrollTo(index)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full xl:w-10/12 lg:w-10/12 md:w-11/12 mx-auto py-4 flex flex-col justify-center items-center px-6">
-        <h1 className="text-center font-normal text-4xl mb-16 font-serif">
-          Upcoming Events
+      <div className="w-full xl:w-10/12 lg:w-10/12 md:w-11/12 mx-auto py-4 flex flex-col px-6">
+        <h1 className="text-start font-normal text-2xl md:text-4xl mb-2 font-serif">
+          Upcoming Evaluations
         </h1>
-        <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <h1 className="text-start font-normal text-2xl font-serif">Today</h1>
+        <div className="flex m-auto w-10/12 py-6">
+          <div className="cursor-pointer w-full flex justify-around ">
+            <div className="text-sm flex flex-col text-center justify-center text-black">
+              <h1 class="font-serif text-sm capitalize">mon</h1>
+              <h1 class="font-serif text-xl font-bold">26</h1>
+            </div>
+            <div className="text-sm flex flex-col justify-center text-black">
+              <h1 class="font-serif text-sm capitalize">tue</h1>
+              <h1 class="font-serif text-xl font-bold">27</h1>
+            </div>
+            <div className="text-sm flex flex-col justify-center text-black">
+              <h1 class="font-serif text-sm capitalize">Wen</h1>
+              <h1 class="font-serif text-xl font-bold">28</h1>
+            </div>
+            <div className="text-sm flex flex-col justify-center text-black">
+              <h1 class="font-serif text-sm capitalize">thur</h1>
+              <h1 class="font-serif text-xl font-bold">29</h1>
+            </div>
+            <div className="text-sm flex flex-col justify-center text-black">
+              <h1 class="font-serif text-sm capitalize">frid</h1>
+              <h1 class="font-serif text-xl font-bold">30</h1>
+            </div>
+          </div>
+        </div>
+        <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg justify-center items-center">
           <img
             alt=""
             src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
@@ -268,13 +269,13 @@ const StudentLandingPage = () => {
 
           <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
             <div class="p-4 sm:p-6">
-              <time datetime="2024-10-04" class="block text-xs text-white/90">
+              <h1 datetime="2024-10-04" class="block text-xs text-white/90">
                 {" "}
-                4th Oct 2024{" "}
-              </time>
+                Evaluation Type | Level
+              </h1>
 
               <a href="#">
-                <h3 class="mt-0.5 text-lg text-white">Upcoming Events name</h3>
+                <h3 class="mt-0.5 text-lg text-white">Total result</h3>
               </a>
             </div>
           </div>
@@ -283,4 +284,4 @@ const StudentLandingPage = () => {
     </Layout>
   );
 };
-export default StudentLandingPage;
+export default StudentResultPage;

@@ -38,6 +38,7 @@ module.exports = {
       flex: {
         2: "0 0 100%",
         3: "0 0 33.33%",
+        //4: "0 0 16.6667%",
       },
       gridTemplateColumns: {
         fluid: "repeat(auto-fit,minmax(20rem,1fr))",

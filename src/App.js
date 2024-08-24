@@ -18,6 +18,10 @@ import ProtectedRoutes from "./protectedRoutes/ProtectedRoutes";
 import NotFound from "./LandingPage/Component/NotFound/NotFound";
 import SignIn from "./LandingPage/Pages/Auth/SignIn";
 import StudentLandingPage from "./LandingPage/Pages/Students/StudentLandingPage";
+import StudentResultPage from "./LandingPage/Pages/Students/studentResultPage";
+import StudentResultDetailPage from "./LandingPage/Pages/Students/studentResultDetailPage";
+import AllQuestions from "./LandingPage/Pages/Students/AllQuestions";
+import StudentProfile from "./LandingPage/Pages/Students/StudentProfile";
 
 function App() {
   return (
@@ -52,7 +56,14 @@ function App() {
         {/* Landing Page Routes */}
         <Route path="/signin" element={<SignIn />} />
         <Route element={<ProtectedRoutes />}>
-        <Route path="/students" element={<StudentLandingPage />} />
+          <Route path="/students" element={<StudentLandingPage />} />
+          <Route path="/student-result" element={<StudentResultPage />} />
+          <Route
+            path="/student-result-detail"
+            element={<StudentResultDetailPage />}
+          />
+          <Route path="/all-questions" element={<AllQuestions />} />
+          <Route path="/student-profile" element={<StudentProfile />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

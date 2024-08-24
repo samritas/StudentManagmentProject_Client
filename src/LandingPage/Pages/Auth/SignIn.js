@@ -1,10 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import youngWomen from "../../../AdminPage/assets/images/young_woman_sitting_in_front_of_laptop_and_having_an_idea.png";
 // return
 const SignIn = (props) => {
-
   const navigate = useNavigate();
   // use form
   const {
@@ -13,23 +12,19 @@ const SignIn = (props) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit=(loginData)=>{
-     localStorage.setItem("userInfo", JSON.stringify("loggedUser"));
+  const onSubmit = (loginData) => {
+    localStorage.setItem("userInfo", JSON.stringify("loggedUser"));
     navigate("/students");
-  }
+  };
 
   return (
     <>
       <section class="w-full bg-gray-500">
         <div className="h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
-          <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-cyan-500 to-blue-500 h-full">
+          <div class="flex flex-col md:flex-row items-center bg-[#002B16] h-full">
             <div class="px-4 py-6 text-white md:mx-6 md:p-12">
               <div class="md:hidden flex text-center">
-                <img
-                  class="w-48 mx-auto"
-                  src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                  alt="logo"
-                />
+                <img class="w-48 mx-auto" src={youngWomen} alt="logo" />
               </div>
 
               <h4 class="my-6 text-xl font-semibold">
@@ -49,11 +44,7 @@ const SignIn = (props) => {
           <div class="px-4 md:px-0 py-4  h-full bg-white w-full">
             <div class="md:mx-6 md:p-12">
               <div class="text-center hidden md:flex">
-                <img
-                  class="mx-auto w-48"
-                  src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                  alt="logo"
-                />
+                <img class="mx-auto w-48" src={youngWomen} alt="logo" />
               </div>
               <div className="items-center  hidden md:flex flex-col justify-center ">
                 <h4 class="mb-12 mt-1 pb-1 text-xl font-semibold">
@@ -61,7 +52,10 @@ const SignIn = (props) => {
                 </h4>
               </div>
 
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              <form
+                className="space-y-4 md:space-y-6"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <p class="mb-4">Please login to your account</p>
 
                 <div>
@@ -93,7 +87,7 @@ const SignIn = (props) => {
                 <div class="mb-12 pb-1 pt-1 text-center">
                   <button
                     type="submit"
-                    class="w-full text-white bg-[#90EE90] hover:bg-[#3aa63a] focus:ring-4 focus:outline-none focus:ring-[#9cf09c] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    class="w-full text-white bg-[#002B16] hover:bg-[#3aa63a] focus:ring-4 focus:outline-none focus:ring-[#9cf09c] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   >
                     Log in
                   </button>
