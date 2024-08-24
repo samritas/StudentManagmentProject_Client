@@ -61,7 +61,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
       {protectedHeader()}
       {navBackground && <div className="h-[96px]"></div>}
       <main>{children}</main>
-      {/* {protectedFooter()} */}
+      {protectedFooter()}
     </div>
   );
 };
