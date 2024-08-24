@@ -62,7 +62,7 @@ function App() {
             path="/student-result-detail"
             element={<StudentResultDetailPage />}
           />
-          <Route path="/all-questions" element={<AllQuestions />} />
+          <Route path="/all-question" element={<AllQuestions />} />
           <Route path="/student-profile" element={<StudentProfile />} />
         </Route>
         <Route path="*" element={<NotFound />} />
