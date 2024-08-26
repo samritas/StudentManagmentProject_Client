@@ -7,7 +7,7 @@ import {
   Typography,
   Avatar,
 } from "@mui/material";
-import youngWomen from "../../assets/images/young_woman_sitting_in_front_of_laptop_and_having_an_idea.png"
+import youngWomen from "../../../assets/images/young_woman_sitting_in_front_of_laptop_and_having_an_idea.png"
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {

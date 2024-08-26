@@ -20,12 +20,10 @@ const buttonStyle = {
   },
 };
 
-export default function SetHomeRoomTeacher() {
+export default function ClassRoomRegistration() {
   return (
     <Box sx={style}>
-      <Typography variant="h6" component="h2" sx={{ mb: 3, color: '#000000' }}>
-      Set HomeRoom Teacher
-      </Typography>
+      <h1 className="text-2xl font-bold mb-6" >Class Room Registration</h1>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField

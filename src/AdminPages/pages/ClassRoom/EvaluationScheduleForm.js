@@ -23,9 +23,7 @@ const buttonStyle = {
 export default function EvaluationScheduleForm() {
   return (
     <Box sx={style}>
-      <Typography variant="h6" component="h2" sx={{ mb: 3, color: '#000000' }}>
-        Evaluation Schedule
-      </Typography>
+      <h1 className="text-2xl font-bold mb-6" > Evaluation Schedule</h1>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField
